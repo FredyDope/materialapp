@@ -1,5 +1,10 @@
-import React, { Component } from 'react'
-import { Grid, Paper, Typography } from '@material-ui/core/'
+import React, { Component, fragment } from 'react'
+import {  Grid, 
+          Paper, 
+          Typography,
+          List,
+          ListItem,
+          ListItemText } from '@material-ui/core/'
 
 const styles = {
 	Paper: { padding: 20, marginTop: 10, marginBottom: 10 }
@@ -13,12 +18,24 @@ class Exercices extends Component {
       	<Grid item sm>
       		<Paper style={styles.Paper}>
             {exercises.map(([group, exercises])=>
-              <Typography
-                variant="headline"
-                style = {{textTransform: 'capitalize'}}
-              >
-                {group}
-              </Typography>
+              <fragment>
+                <Typography
+                  variant="headline"
+                  style = {{textTransform: 'capitalize'}}
+                >
+                  { group }
+                </Typography>
+                <List component="ul">
+                {exercises.map(({ title }) =>
+                  <ListItem button>
+                    <ListItemText primary={ title } />
+                  </ListItem>
+                  )}
+                  <ListItem button component="a" href="#simple-list">
+                    <ListItemText primary="Spam" />
+                  </ListItem>
+                </List>
+              </fragment>
               )}
           </Paper>  
       	</Grid>
