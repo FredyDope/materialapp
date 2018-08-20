@@ -3,17 +3,19 @@ import { Paper, Tabs, Tab} from '@material-ui/core/'
 
 class Footer extends Component {
   render() {
+    const { muscles } = this.props
     return (
       <Paper>
         <Tabs
-        value={1}
+        value={0}
 		indicatorColor="primary"
 		textColor="primary"
 		centered
         >
-          <Tab label="Item One" />
-          <Tab label="Item Two" />
-          <Tab label="Item Three" />
+        <Tab label="All" />
+        {muscles.map(group =>
+          <Tab label={group} />
+         )}
         </Tabs>
       </Paper>
     )
