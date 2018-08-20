@@ -7,7 +7,13 @@ import {  Grid,
           ListItemText } from '@material-ui/core/'
 
 const styles = {
-	Paper: { padding: 20, marginTop: 10, marginBottom: 10, height: 500, overflowY: 'auto' }
+	Paper: { 
+    padding: 20, 
+    marginTop: 10, 
+    marginBottom: 10, 
+    height: 500, 
+    overflowY: 'auto' 
+  }
 }
 
 class Exercices extends Component {
