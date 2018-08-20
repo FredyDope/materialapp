@@ -10,7 +10,6 @@ class Home extends Component {
     return (
        <Fragment>
           <Header />
-          <h1>Home</h1>
           <Exercices />
           <Footer />
       </Fragment>
