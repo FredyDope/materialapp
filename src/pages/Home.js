@@ -4,19 +4,16 @@ import Footer from '../components/Footer'
 import Exercises from '../components/exercises'
 import { exercises, muscles } from '../components/Stores'
 
-
-
 class Home extends Component {
 	state = {
 		exercises
 	}
 //avec la methode reduce on renvoi dans la console les objets exercises triés par categories
-//avec object.entries on renvoi des tableaux de categories contenant un tableau avec les exercises référents. 
+//avec object.entries on renvoi un tableau contenant des tableaux de categorie contenant un tableau avec les exercises référents. 
 	getExercisesByGroup(){
 		return Object.entries
 			(this.state.exercises.reduce((exercises, exercise) => {
 				const{ muscles } = exercise
-
 				exercises[muscles] = exercises[muscles]
 				? [...exercises[muscles], exercise]
 				: [exercise]
@@ -27,13 +24,20 @@ class Home extends Component {
 	}
 
   render() {
-  	console.log(this.getExercisesByGroup())
+  	//console.log(this.getExercisesByGroup())
+  	const exercises = this.getExercisesByGroup()
     return (
        <Fragment>
           <Header />
-          <Exercises />
+
+          <Exercises 
+          	exercises={exercises}
+
+          />
+
           <Footer
           	muscles={muscles} 
+
           />
       </Fragment>
     );
