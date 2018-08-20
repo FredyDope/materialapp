@@ -7,7 +7,7 @@ import {  Grid,
           ListItemText } from '@material-ui/core/'
 
 const styles = {
-	Paper: { padding: 20, marginTop: 10, marginBottom: 10 }
+	Paper: { padding: 20, marginTop: 10, marginBottom: 10, height: 500, overflowY: 'auto' }
 }
 
 class Exercices extends Component {
@@ -41,7 +41,19 @@ class Exercices extends Component {
       	</Grid>
       	<Grid item sm>
       		<Paper style={styles.Paper}>
-            Right Side
+           <Typography 
+            variant="display1"
+           >
+           Welcome! 
+
+           </Typography>
+           <Typography
+           variant="subheading"
+           style= {{ marginTop: 20 }}
+           >
+           Please select an exercise from the list on the left.
+             
+           </Typography>
           </Paper>  
       	</Grid>
       </Grid>
