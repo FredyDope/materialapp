@@ -10,17 +10,20 @@ class Home extends Component {
 	state = {
 		exercises
 	}
-	//les exercises sont triés par categories
+//avec la methode reduce on renvoi dans la console les objets exercises triés par categories
+//avec object.entries on renvoi des tableaux de categories contenant un tableau avec les exercises référents. 
 	getExercisesByGroup(){
-		return this.state.exercises.reduce((exercises, exercise) => {
-			const{ muscles } = exercise
+		return Object.entries
+			(this.state.exercises.reduce((exercises, exercise) => {
+				const{ muscles } = exercise
 
-			exercises[muscles] = exercises[muscles]
-			? [...exercises[muscles], exercise]
-			: [exercise]
-		
-		return exercises 
-		}, {})
+				exercises[muscles] = exercises[muscles]
+				? [...exercises[muscles], exercise]
+				: [exercise]
+			
+				return exercises 
+			}, {})
+		)
 	}
 
   render() {
