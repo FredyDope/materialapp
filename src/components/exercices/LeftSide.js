@@ -5,6 +5,3 @@ export default ({ styles }) =>
           <Paper style={styles.Paper}>
             Left Side
           </Paper>  
-    
-
-
