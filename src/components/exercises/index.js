@@ -1,4 +1,4 @@
-import React, { Component, fragment } from 'react'
+import React, { Component, Fragment } from 'react'
 import {  Grid, 
           Paper, 
           Typography,
@@ -16,16 +16,26 @@ const styles = {
   }
 }
 
-class Exercices extends Component {
+class Exercises extends Component {
   render() {
-    const { exercises, category } = this.props
+    const { 
+      exercises, 
+      category, 
+      onSelect, 
+      exercise: {
+        //id, 
+        title= 'Welcome!',
+        description= 'Please select an exercise from the list on the left.'
+      }
+    } = this.props
+
     return (
       <Grid container>
       	<Grid item sm>
       		<Paper style={styles.Paper}>
             {exercises.map(([group, exercises])=>
               !category || category === group
-                ? <fragment>
+                ? <Fragment key={group}>
                     <Typography
                       variant="headline"
                       style = {{textTransform: 'capitalize'}}
@@ -33,13 +43,17 @@ class Exercices extends Component {
                       { group }
                     </Typography>
                     <List component="ul">
-                    {exercises.map(({ title }) =>
-                      <ListItem button>
-                        <ListItemText primary={ title } />
-                      </ListItem>
+                      {exercises.map(({ id, title }) =>
+                        <ListItem
+                          key={id} 
+                          button
+                          onClick={() => onSelect(id)}
+                        >
+                          <ListItemText primary={ title } />
+                        </ListItem>
                       )}
                     </List>
-                  </fragment>
+                  </Fragment>
                 :null 
             )}
           </Paper>  
@@ -49,14 +63,14 @@ class Exercices extends Component {
            <Typography 
             variant="display1"
            >
-           Welcome! 
+           {title}
 
            </Typography>
            <Typography
            variant="subheading"
            style= {{ marginTop: 20 }}
            >
-           Please select an exercise from the list on the left.
+           {description}
              
            </Typography>
           </Paper>  
@@ -66,4 +80,4 @@ class Exercices extends Component {
   }
 }
 
-export default Exercices
+export default Exercises

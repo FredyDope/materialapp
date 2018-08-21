@@ -22,7 +22,7 @@ class Footer extends Component {
         >
         <Tab label="All" />
         {muscles.map(group =>
-          <Tab label={group} />
+          <Tab key={group} label={group} />
          )}
         </Tabs>
       </Paper>
