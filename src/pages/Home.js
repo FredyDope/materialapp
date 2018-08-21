@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Exercises from '../components/exercises'
@@ -37,19 +37,20 @@ class Home extends Component {
        <Fragment>
           <Header />
 
-          <Exercises 
-          	exercises={exercises}
+          <Exercises  
+          	category={ category }
+          	exercises={ exercises }
 
           />
 
           <Footer
-          	category={category}
-          	muscles={muscles}
+          	category={ category }
+          	muscles={ muscles }
           	onSelect={this.handleCategorySelected} 
 
           />
       </Fragment>
-    );
+    )
   }
 }
 

@@ -18,31 +18,30 @@ const styles = {
 
 class Exercices extends Component {
   render() {
-    const { exercises } = this.props
+    const { exercises, category } = this.props
     return (
       <Grid container>
       	<Grid item sm>
       		<Paper style={styles.Paper}>
             {exercises.map(([group, exercises])=>
-              <fragment>
-                <Typography
-                  variant="headline"
-                  style = {{textTransform: 'capitalize'}}
-                >
-                  { group }
-                </Typography>
-                <List component="ul">
-                {exercises.map(({ title }) =>
-                  <ListItem button>
-                    <ListItemText primary={ title } />
-                  </ListItem>
-                  )}
-                  <ListItem button component="a" href="#simple-list">
-                    <ListItemText primary="Spam" />
-                  </ListItem>
-                </List>
-              </fragment>
-              )}
+              !category || category === group
+                ? <fragment>
+                    <Typography
+                      variant="headline"
+                      style = {{textTransform: 'capitalize'}}
+                    >
+                      { group }
+                    </Typography>
+                    <List component="ul">
+                    {exercises.map(({ title }) =>
+                      <ListItem button>
+                        <ListItemText primary={ title } />
+                      </ListItem>
+                      )}
+                    </List>
+                  </fragment>
+                :null 
+            )}
           </Paper>  
       	</Grid>
       	<Grid item sm>
